@@ -10,9 +10,9 @@ if app_num == '':
     app_num='1'
 gh_token=os.getenv('GH_TOKEN')
 gh_repo=os.getenv('GH_REPO')
-#ms_token=os.getenv('MS_TOKEN')
-#client_id=os.getenv('CLIENT_ID')
-#client_secret=os.getenv('CLIENT_SECRET')
+ms_token=os.getenv('MS_TOKEN')
+client_id=os.getenv('CLIENT_ID')
+client_secret=os.getenv('CLIENT_SECRET')
 Auth=r'token '+gh_token
 geturl=r'https://api.github.com/repos/'+gh_repo+r'/actions/secrets/public-key'
 #puturl=r'https://api.github.com/repos/'+gh_repo+r'/actions/secrets/MS_TOKEN'
@@ -44,10 +44,10 @@ def getmstoken(ms_token,appnum):
          }
     html = req.post('https://login.microsoftonline.com/common/oauth2/v2.0/token',data=data,headers=headers)
     jsontxt = json.loads(html.text)
-    #if 'refresh_token' in jsontxt:
-    #    print(r'账号/应用 '+str(appnum)+' 的微软密钥获取成功')
-    #else:
-    #    print(r'账号/应用 '+str(appnum)+' 的微软密钥获取失败'+'\n'+'请检查secret里 CLIENT_ID , CLIENT_SECRET , MS_TOKEN 格式与内容是否正确，然后重新设置')
+    if 'refresh_token' in jsontxt:
+        print(r'账号/应用 '+str(appnum)+' 的微软密钥获取成功')
+    else:
+        print(r'账号/应用 '+str(appnum)+' 的微软密钥获取失败'+'\n'+'请检查secret里 CLIENT_ID , CLIENT_SECRET , MS_TOKEN 格式与内容是否正确，然后重新设置')
     refresh_token = jsontxt['refresh_token']
     access_token = jsontxt['access_token']
     return refresh_token
