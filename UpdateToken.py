@@ -10,18 +10,13 @@ if app_num == '':
     app_num='1'
 gh_token=os.getenv('GH_TOKEN')
 gh_repo=os.getenv('GH_REPO')
-ms_token=os.getenv('MS_TOKEN')
-client_id=os.getenv('CLIENT_ID')
-client_secret=os.getenv('CLIENT_SECRET')
+#ms_token=os.getenv('MS_TOKEN')
+#client_id=os.getenv('CLIENT_ID')
+#client_secret=os.getenv('CLIENT_SECRET')
 Auth=r'token '+gh_token
 geturl=r'https://api.github.com/repos/'+gh_repo+r'/actions/secrets/public-key'
 #puturl=r'https://api.github.com/repos/'+gh_repo+r'/actions/secrets/MS_TOKEN'
 key_id='lurenJBD'
-print("gh_token")
-print("gh_repo")
-print("ms_token")
-print("client_id")
-print("client_secret")
 
 #公钥获取
 def getpublickey(Auth,geturl):
@@ -82,6 +77,12 @@ for a in range(1, int(app_num)+1):
     client_id=os.getenv('CLIENT_ID_'+str(a))
     client_secret=os.getenv('CLIENT_SECRET_'+str(a))
     ms_token=os.getenv('MS_TOKEN_'+str(a))
+    print("gh_token")
+    print("gh_repo")
+    print("ms_token")
+    print("client_id")
+    print("client_secret")
+
     if a == 1:
         puturl=r'https://api.github.com/repos/'+gh_repo+r'/actions/secrets/MS_TOKEN'
     else:
