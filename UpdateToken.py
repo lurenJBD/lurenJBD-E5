@@ -44,10 +44,10 @@ def getmstoken(ms_token,appnum):
          }
     html = req.post('https://login.microsoftonline.com/common/oauth2/v2.0/token',data=data,headers=headers)
     jsontxt = json.loads(html.text)
-    if 'refresh_token' in jsontxt:
-        print(r'账号/应用 '+str(appnum)+' 的微软密钥获取成功')
-    else:
-        print(r'账号/应用 '+str(appnum)+' 的微软密钥获取失败'+'\n'+'请检查secret里 CLIENT_ID , CLIENT_SECRET , MS_TOKEN 格式与内容是否正确，然后重新设置')
+    #if 'refresh_token' in jsontxt:
+    #    print(r'账号/应用 '+str(appnum)+' 的微软密钥获取成功')
+    #else:
+    #    print(r'账号/应用 '+str(appnum)+' 的微软密钥获取失败'+'\n'+'请检查secret里 CLIENT_ID , CLIENT_SECRET , MS_TOKEN 格式与内容是否正确，然后重新设置')
     refresh_token = jsontxt['refresh_token']
     access_token = jsontxt['access_token']
     return refresh_token
