@@ -16,7 +16,12 @@ client_secret=os.getenv('CLIENT_SECRET')
 Auth=r'token '+gh_token
 geturl=r'https://api.github.com/repos/'+gh_repo+r'/actions/secrets/public-key'
 #puturl=r'https://api.github.com/repos/'+gh_repo+r'/actions/secrets/MS_TOKEN'
-key_id='wangziyingwen'
+key_id='lurenJBD'
+print("gh_token")
+print("gh_repo")
+print("ms_token")
+print("client_id")
+print("client_secret")
 
 #公钥获取
 def getpublickey(Auth,geturl):
