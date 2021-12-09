@@ -74,14 +74,17 @@ def setsecret(encrypted_value,key_id,puturl,appnum):
     
 #调用 
 for a in range(1, int(app_num)+1):
-    client_id=os.getenv('CLIENT_ID_'+str(a))
-    client_secret=os.getenv('CLIENT_SECRET_'+str(a))
-    ms_token=os.getenv('MS_TOKEN_'+str(a))
-    print("gh_token")
-    print("gh_repo")
-    print("ms_token")
-    print("client_id")
-    print("client_secret")
+    #client_id=os.getenv('CLIENT_ID_'+str(a))
+    #client_secret=os.getenv('CLIENT_SECRET_'+str(a))
+    #ms_token=os.getenv('MS_TOKEN_'+str(a))
+    ms_token=os.getenv('MS_TOKEN')
+    client_id=os.getenv('CLIENT_ID')
+    client_secret=os.getenv('CLIENT_SECRET')
+    print(gh_token)
+    print(gh_repo)
+    print(ms_token)
+    print(client_id)
+    print(client_secret)
 
     if a == 1:
         puturl=r'https://api.github.com/repos/'+gh_repo+r'/actions/secrets/MS_TOKEN'
